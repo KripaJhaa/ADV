@@ -1,8 +1,8 @@
-import { Select1 } from "../Component/Select/Select1";
+import { CustomDropdown} from "../Component/Select/CustomDropdown";
 
 
 export default {
     title: 'New/Select',
-    component: Select1,
+    component: CustomDropdown,
   };
-export const select1 = ()=> <Select1/>;
+export const Customdropdown = ()=> <CustomDropdown/>;

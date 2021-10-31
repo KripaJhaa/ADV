@@ -1,8 +1,8 @@
-import { Tab1 } from "../Component/Tab/Tab1";
+import { CustomTab } from "../Component/Tab/CustomTab";
 
 
 export default {
     title: 'New/Tab',
-    component: Tab1,
+    component: CustomTab,
   };
-export const tab1 = ()=> <Tab1/>;
+export const Customtab = ()=> <CustomTab/>;

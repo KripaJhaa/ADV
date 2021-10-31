@@ -37,7 +37,7 @@ function a11yProps(index) {
     'aria-controls': `simple-tabpanel-${index}`,
   };
 }
-export const Tab1 = () => {
+export const CustomTab = () => {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {

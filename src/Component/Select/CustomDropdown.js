@@ -2,10 +2,11 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-import { faHome } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons';
-export const Select1 = () => {
+import HomeIcon from '@mui/icons-material/Home';
+import CoffeeIcon from '@mui/icons-material/Coffee';
+import CheckIcon from '@mui/icons-material/Check';
+
+export const CustomDropdown = () => {
   return (
     <Autocomplete
       id="example"
@@ -36,7 +37,7 @@ export const Select1 = () => {
 
 
 const optionss = [
-  {  icon:<FontAwesomeIcon icon={faHome} transform="left-15"  />,label: 'Home'},
-  {  icon:<FontAwesomeIcon icon={faCoffee} transform="left-15" />,label: 'Cofee' },
-  {   icon:<FontAwesomeIcon icon={faCheckSquare} transform="left-15" />,label: 'CheckSquare' },
+  {  icon:<HomeIcon />,label: 'Home'},
+  { icon:<CoffeeIcon />, label: 'Cofee' },
+  {  icon:<CheckIcon/>, label: 'CheckSquare' },
   ];

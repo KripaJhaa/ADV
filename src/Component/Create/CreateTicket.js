@@ -9,7 +9,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import './style.scss'
 
 
-export const Create1 = () => {
+export const CreateTicket = () => {
     const [state, setState] = React.useState({
         left: false,
     });
@@ -41,7 +41,7 @@ export const Create1 = () => {
                             }}
                             noValidate
                             autoComplete="off">
-                            
+
                             <div className="header">
                                 <h1> Create ticket</h1>
                             </div>
