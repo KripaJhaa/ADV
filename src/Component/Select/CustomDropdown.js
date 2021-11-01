@@ -6,6 +6,13 @@ import HomeIcon from '@mui/icons-material/Home';
 import CoffeeIcon from '@mui/icons-material/Coffee';
 import CheckIcon from '@mui/icons-material/Check';
 
+const optionss = [
+  {  icon:<HomeIcon />,label: 'Home'},
+  { icon:<CoffeeIcon />, label: 'Cofee' },
+  {  icon:<CheckIcon/>, label: 'CheckSquare' },
+  ];
+
+
 export const CustomDropdown = () => {
   return (
     <Autocomplete
@@ -36,8 +43,3 @@ export const CustomDropdown = () => {
 }
 
 
-const optionss = [
-  {  icon:<HomeIcon />,label: 'Home'},
-  { icon:<CoffeeIcon />, label: 'Cofee' },
-  {  icon:<CheckIcon/>, label: 'CheckSquare' },
-  ];

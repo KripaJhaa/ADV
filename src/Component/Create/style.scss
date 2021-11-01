@@ -15,6 +15,7 @@ h1
 }
 .dropdown
 {
+    width: 60ch !important;
     height: 2;
     margin-bottom: 6;
     padding: 1px;
@@ -25,5 +26,25 @@ h1
     margin-bottom: 2em;
     margin-top: 3.5em;
 }
+.MuiTextField-root
+{
+    margin-left: 2.7em !important;
+   margin: 1em;
+    padding: 20px;
+    width: 60ch;
+    height: 5px;
+}
+.MuiFormLabel-root
+{
+    margin-top: 3.5em !important;
+    margin-left: 3.2em !important;
+    margin-bottom: 0.4em !important;
+    font-size: 14px !important;
+    font-family:Avenir Next W02,Helvetica,Arial,sans-serif !important;
+   
+}
+
+  
+
 
 

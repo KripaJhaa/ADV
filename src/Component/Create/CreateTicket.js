@@ -8,6 +8,36 @@ import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
 import './style.scss'
 
+const ticketowner = [
+    { label: 'Riya' },
+   
+];
+const pipeline = [
+    { label: 'support pipeline' },
+    { label: 'add another pipeline' },
+
+];
+const source = [
+    { label: 'chat' },
+    { label: 'form' },
+    { label: 'email' },
+    { label: 'phone' },
+];
+const ticket = [
+    { label: 'New' },
+    { label: 'waiting on contact' },
+    { label: 'waiting on us' },
+    { label: 'closed' },
+];
+const priority = [
+    { label: ' Low' },
+    { label: 'Medium' },
+    { label: 'High' },
+
+];
+const company = [
+    {}
+];
 
 export const CreateTicket = () => {
     const [state, setState] = React.useState({
@@ -33,12 +63,7 @@ export const CreateTicket = () => {
                     >
                         <Box
                             component="form"
-                            sx={{
-
-                                width: '70ch',
-                                '& .MuiFormLabel-root': { mt: 7.5, ml: 7, fontSize: '14px', fontFamily: 'Avenir Next W02,Helvetica,Arial,sans-serif', width: '65ch' },
-                                '& .MuiTextField-root': { m: 1, ml: 7,padding:'2px', width: '55ch', height: '5px' },
-                            }}
+                            sx={{    width: '70ch'    }}
                             noValidate
                             autoComplete="off">
 
@@ -47,11 +72,12 @@ export const CreateTicket = () => {
                             </div>
                             <FormLabel
                                 component="legend">Ticket name*</FormLabel>
-                            <TextField 
+                            <TextField className="inputboxx"
                             />
                             <FormLabel component="legend">Pipeline*</FormLabel>
                             <Autocomplete
                                 id="pipeline"
+                                className="dropdown"
                                 options={pipeline}
                                 autoHighlight
                                 getOptionLabel={(option) => option.label}
@@ -73,6 +99,7 @@ export const CreateTicket = () => {
                             <FormLabel component="legend">Ticket Status*</FormLabel>
                             <Autocomplete
                                 id="ticket"
+                                className="dropdown"
                                 options={ticket}
                                 autoHighlight
                                 getOptionLabel={(option) => option.label}
@@ -236,33 +263,3 @@ export const CreateTicket = () => {
         </>
     );
 }
-const ticketowner = [
-    { label: 'Riya' },
-   
-];
-const pipeline = [
-    { label: 'support pipeline' },
-    { label: 'add another pipeline' },
-
-];
-const source = [
-    { label: 'chat' },
-    { label: 'form' },
-    { label: 'email' },
-    { label: 'phone' },
-];
-const ticket = [
-    { label: 'New' },
-    { label: 'waiting on contact' },
-    { label: 'waiting on us' },
-    { label: 'closed' },
-];
-const priority = [
-    { label: ' Low' },
-    { label: 'Medium' },
-    { label: 'High' },
-
-];
-const company = [
-    {}
-];
