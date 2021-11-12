@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react'
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
@@ -6,8 +6,15 @@ import TextField from '@mui/material/TextField';
 import FormLabel from '@mui/material/FormLabel';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import TimePicker from '@mui/lab/TimePicker';
+import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import './style.scss'
+import {CustomDropdown} from "../Select/CustomDropdown";
 
+
+const data = "Hello Everyone";
 const ticketowner = [
     { label: 'Riya' },
    
@@ -39,7 +46,7 @@ const company = [
     {}
 ];
 
-export const CreateTicket = () => {
+export const CreateTicket  = () => {
     const [state, setState] = React.useState({
         left: false,
     });
@@ -50,9 +57,15 @@ export const CreateTicket = () => {
         }
         setState({ ...state, [anchor]: open });
     };
+    const [value, setValue] = React.useState(new Date('2014-08-18'));
 
+    const handleChange = (newValue) => {
+      setValue(newValue);
+    };
     return (
         <>
+        
+        
             {['right'].map((anchor) => (
                 <React.Fragment key={anchor}>
                     <Button  variant="contained"  onClick={toggleDrawer(anchor, true)}>Create Ticket</Button>
@@ -70,192 +83,52 @@ export const CreateTicket = () => {
                             <div className="header">
                                 <h1> Create ticket</h1>
                             </div>
-                            <FormLabel
-                                component="legend">Ticket name*</FormLabel>
-                            <TextField className="inputboxx"
-                            />
+                            <form>
+                            <FormLabel component="legend">Ticket name*</FormLabel>
+                            <TextField className="inputboxx"/>
+
                             <FormLabel component="legend">Pipeline*</FormLabel>
-                            <Autocomplete
-                                id="pipeline"
-                                className="dropdown"
-                                options={pipeline}
-                                autoHighlight
-                                getOptionLabel={(option) => option.label}
-
-                                renderOption={(props, option) => (
-                                    <Box component="li" {...props}>
-                                        {option.icon}  {option.label} 
-                                    </Box>
-                                )}
-                                renderInput={(params) => (
-                                    <TextField
-                                        {...params}
-                                        inputProps={{
-                                            ...params.inputProps,
-                                        }}
-                                    />
-                                )}
-                            />
+                            <CustomDropdown option={pipeline}/>
+                           
                             <FormLabel component="legend">Ticket Status*</FormLabel>
-                            <Autocomplete
-                                id="ticket"
-                                className="dropdown"
-                                options={ticket}
-                                autoHighlight
-                                getOptionLabel={(option) => option.label}
-
-                                renderOption={(props, option) => (
-                                    <Box component="li" {...props}>
-                                        {option.icon}  {option.label}
-                                    </Box>
-                                )}
-                                renderInput={(params) => (
-                                    <TextField
-                                        {...params}
-
-
-                                        inputProps={{
-                                            ...params.inputProps,
-
-                                        }}
-                                    />
-                                )}
-                            />
+                            <CustomDropdown option={ticket}/>
+                           
                             <FormLabel component="legend">Ticket description*</FormLabel>
                             <TextField
                             />
                             <FormLabel component="legend">Source*</FormLabel>
-                            <Autocomplete
-                                className="dropdown"
+                            <CustomDropdown option={source}/>
 
-                                options={source}
-                                autoHighlight
-                                getOptionLabel={(option) => option.label}
-
-                                renderOption={(props, option) => (
-                                    <Box component="li" {...props}>
-                                        {option.icon}  {option.label} {option.style}
-                                    </Box>
-                                )}
-                                renderInput={(params) => (
-                                    <TextField
-                                        {...params}
-                                        inputProps={{
-                                            ...params.inputProps,
-
-                                        }}
-                                    />
-                                )}
-                            />
                             <FormLabel component="legend"> Ticket owner*</FormLabel>
-                            <Autocomplete
-                                className="dropdown"
-                                options={ticketowner}
-                                autoHighlight
-                                getOptionLabel={(option) => option.label}
-
-                                renderOption={(props, option) => (
-                                    <Box component="li" {...props}>
-                                        {option.icon}  {option.label} {option.style}
-                                    </Box>
-                                )}
-                                renderInput={(params) => (
-                                    <TextField
-                                        {...params}
-                                        inputProps={{
-                                            ...params.inputProps,
-
-                                        }}
-                                    />
-                                )}
-                            />
+                            <CustomDropdown option={ticketowner}/>
+                           
                             <FormLabel component="legend"> Priority*</FormLabel>
-                            <Autocomplete
-                                id=" priority"
-                                className="dropdown"
-                                options={priority}
-                                autoHighlight
-                                getOptionLabel={(option) => option.label}
+                            <CustomDropdown option={priority}/>
 
-                                renderOption={(props, option) => (
-                                    <Box component="li" {...props}>
-                                        {option.icon}  {option.label} 
-                                    </Box>
-                                )}
-                                renderInput={(params) => (
-                                    <TextField
-                                        {...params}
-                                        inputProps={{
-                                            ...params.inputProps,
-
-                                        }}
-                                    />
-                                )}
-                            />
                             <FormLabel component="legend"> Create Date*</FormLabel>
-                            <TextField
-                                id="date"
-                                type="date"
-                                className="dropdown"
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
-                            />
-                            <FormLabel sx={{ mt: 4 }} component="legend"> Company*</FormLabel>
-                            <Autocomplete
-                                id=" company"
-                                className="dropdown"
-                                options={company}
-                                autoHighlight
-
-                                getOptionLabel={(option) => option.label}
-
-                                renderOption={(props, option) => (
-                                    <Box component="li" {...props}>
-                                        {option.icon}  {option.label} 
-                                    </Box>
-                                )}
-                                renderInput={(params) => (
-                                    <TextField
-                                        {...params}
-
-                                        inputProps={{
-                                            ...params.inputProps,
-
-                                        }}
-                                    />
-                                )}
-                            />
+                            <LocalizationProvider dateAdapter={AdapterDateFns}>
+                            <Stack spacing={3}>
+                            <DesktopDatePicker
+                              className="dropdown"
+                              inputFormat="MM/dd/yyyy"
+                             value={value}
+                             onChange={handleChange}
+                             renderInput={(params) => <TextField {...params} />}
+                             />
+                          </Stack>
+                             </LocalizationProvider>
+                            
+                            <FormLabel component="legend"> Company*</FormLabel>
+                            <CustomDropdown option={company}/>
+                           
                             <FormLabel sx={{ mt: 4 }} component="legend"> Contact*</FormLabel>
-                            <Autocomplete
-                                id=" company"
-                                className="dropdown"
-                                options={company}
-                                autoHighlight
-
-                                getOptionLabel={(option) => option.label}
-
-                                renderOption={(props, option) => (
-                                    <Box component="li" {...props}>
-                                        {option.icon}  {option.label} 
-                                    </Box>
-                                )}
-                                renderInput={(params) => (
-                                    <TextField
-                                        {...params}
-
-                                        inputProps={{
-                                            ...params.inputProps,
-
-                                        }}
-                                    />
-                                )}
-                            />
+                            <CustomDropdown option={company}/>                   
                             <Stack className="stack" spacing={2} direction="row">
-                                <Button variant="outlined">Create</Button>
+                            <Button variant="outlined">Submit</Button>
                                 <Button variant="outlined">Create and add another</Button>
                                 <Button variant="outlined">cancel</Button>
                             </Stack>
+                            </form>
                         </Box>
                     </Drawer>
                 </React.Fragment>
