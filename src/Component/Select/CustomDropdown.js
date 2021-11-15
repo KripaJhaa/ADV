@@ -1,11 +1,11 @@
-import * as React from 'react';
+import React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import HomeIcon from '@mui/icons-material/Home';
 import CoffeeIcon from '@mui/icons-material/Coffee';
 import CheckIcon from '@mui/icons-material/Check';
-
+import '../Create/style.scss'
 const optionss = [
   {  icon:<HomeIcon />,label: 'Home'},
   { icon:<CoffeeIcon />, label: 'Cofee' },
@@ -13,12 +13,14 @@ const optionss = [
   ];
 
 
-export const CustomDropdown = () => {
+export const CustomDropdown = (props) => {
   return (
+   
     <Autocomplete
       id="example"
-      sx={{width: 300,marginRight:22 }}
-      options={optionss}
+      className="dropdown"
+     
+     options={props.option}
       autoHighlight
       getOptionLabel={(option) => option.label}
      
@@ -30,8 +32,6 @@ export const CustomDropdown = () => {
       renderInput={(params) => (
         <TextField
           {...params}
-          
-          label="Select....."
           inputProps={{
             ...params.inputProps,
            
