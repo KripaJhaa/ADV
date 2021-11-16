@@ -6,18 +6,18 @@ import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import {ListItem,ListItemText,ListItemIcon} from '@mui/material';
 import {InboxIcon,HomeIcon} from '@mui/icons-material/MoveToInbox';
-
+import CloseIcon from '@mui/icons-material/Close';
 import {useSelector,useDispatch} from 'react-redux';
 import {toggleNav} from '../Redux/Actions/genericActions';
 import Icon from '@mui/material/Icon';
 import {SideNavMenuItems} from '../Fixtures/generic-fixture';
-
+import { Link } from "react-router-dom";
 export default function TemporaryDrawer() {
 const sideNavToggle = useSelector(state => state.navToggle);
 const dispatch = useDispatch();
 
 
- const anchor ="right";
+ const anchor ="left";
 
   const list = (anchor) => (
     <Box
@@ -28,6 +28,7 @@ const dispatch = useDispatch();
         {SideNavMenuItems.map((item, index) => (
           <ListItem button key={item.title}>
             <ListItemText primary={item.title} />
+            <Link to="/expenses">Expenses</Link>
           </ListItem>
         ))}
       </List>
@@ -46,7 +47,10 @@ const dispatch = useDispatch();
               height: 300
             }}
           >
-            <Button onClick={()=>dispatch(toggleNav())} sx={{color:"primary.dark"}}>X</Button>
+            <Button variant="contained" aria-label="outlined primary button group"
+             onClick={()=>dispatch(toggleNav())} sx={{color:"primary.dark"}}>
+              <CloseIcon/>
+            </Button>
             {list(anchor)}
           </Drawer>
         </>
