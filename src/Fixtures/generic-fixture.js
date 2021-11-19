@@ -1,9 +1,10 @@
 export const SideNavMenuItems = [
   {
-    title: "Item1",
-    icon: "Home",
-    subtile: "temp1",
-    link: "Some discription",
+    title: "Ticket",
+    icon: "TicketIcon",
+    subtile: "Ticket details",
+    link: "Create ticket and details",
+    redirect:"/tickets"
   },
   {
     title: "Item1",

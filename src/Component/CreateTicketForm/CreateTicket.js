@@ -30,7 +30,6 @@ const ticket = [
   { label: "closed" },
 ];
 const priority = [{ label: " Low" }, { label: "Medium" }, { label: "High" }];
-const company = [{}];
 
 export const CreateTicket = () => {
   const [state, setState] = React.useState({
@@ -48,16 +47,26 @@ export const CreateTicket = () => {
   };
   const [value, setValue] = React.useState(new Date("2014-08-18"));
 
-  const Label = (name) => <FormLabel component="legend">{name}*</FormLabel>;
+  const Label = ({name,important}) => (<FormLabel component="legend">{name} {important ? <>*</> : <></>}</FormLabel>);
 
   const handleChange = (newValue) => {
     setValue(newValue);
   };
+
+  const anchor ="right";
+
+
+    const createTicketForm=(event)=>{
+
+      event.preventDefault();
+      console.log(event);
+
+      data= {ticketName:"asdnasd",status:"processing"};
+  }
+
   return (
-    <>
-      {["right"].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button variant="contained" onClick={toggleDrawer(anchor, true)}>
+    <div key={anchor}>
+          <Button  variant="contained" onClick={toggleDrawer(anchor, true)}>
             Create Ticket
           </Button>
           <Drawer
@@ -75,19 +84,19 @@ export const CreateTicket = () => {
                 <h1> Create ticket</h1>
               </div>
               <form>
-                <Label name="Ticket name*" />
-                <TextField className="inputboxx" />
+              <Label name="Ticket name" />
+                <TextField  id="ticketName" className="inputboxx" />
 
-                <Label name="Pipeline*" />
-                <CustomDropdown option={pipeline} />
+                <Label name="Pipeline" />
+                <CustomDropdown id="pipeline" option={pipeline} />
 
-                <Label name="Ticket Status*" />
-                <CustomDropdown option={ticket} />
+                <Label name="Ticket Status" />
+                <CustomDropdown id="status" option={ticket} />
 
-                <Label name="Ticket owner*" />
+                {/* <Label name="Ticket owner" />
                 <CustomDropdown option={ticketowner} />
 
-                <Label name="Priority*" />
+                <Label name="Priority" important="true" />
                 <CustomDropdown option={priority} />
 
                 <Label name="Create Date*" />
@@ -101,18 +110,17 @@ export const CreateTicket = () => {
                       renderInput={(params) => <TextField {...params} />}
                     />
                   </Stack>
-                </LocalizationProvider>
+                </LocalizationProvider> */}
 
                 <Stack className="stack" spacing={2} direction="row">
-                  <Button variant="outlined">Submit</Button>
+                  <Button variant="outlined" type="submit">Submit</Button>
                   <Button variant="outlined">Create and add another</Button>
                   <Button variant="outlined">cancel</Button>
                 </Stack>
               </form>
             </Box>
           </Drawer>
-        </React.Fragment>
-      ))}
-    </>
+  
+    </div>
   );
 };

@@ -1,4 +1,4 @@
-import {CreateTicket} from "../Component/Create/CreateTicket";
+import {CreateTicket} from "../Component/CreateTicketForm/CreateTicket";
 import React from 'react';
 
 export default {
