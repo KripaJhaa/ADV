@@ -15,8 +15,7 @@ const optionss = [
 
 export const CustomDropdown = (props = { id: "", option: [] ,control:{}}) => {
   return (
-    <Controller
-    render={({ field }) => (
+   
     <Autocomplete
       id={props.id}
       className="dropdown"
@@ -37,9 +36,5 @@ export const CustomDropdown = (props = { id: "", option: [] ,control:{}}) => {
         />
       )}
     />
-  )}
-  control={props.control}
-  defaultValue=""
-  />
-  )
+  ) 
 };
