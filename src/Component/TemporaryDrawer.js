@@ -28,7 +28,7 @@ const dispatch = useDispatch();
         {SideNavMenuItems.map((item, index) => (
           <ListItem button key={item.title}>
             <ListItemText primary={item.subtile} />
-            <Link to={`${item.redirect}`}>{item.title}</Link>
+            <Link onClick={()=>dispatch(toggleNav())} to={`${item.redirect}`}>{item.title}</Link>
           </ListItem>
         ))}
       </List>

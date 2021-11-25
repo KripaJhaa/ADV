@@ -10,6 +10,8 @@ import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
 import "./style.scss";
 import { CustomDropdown } from "../Select/CustomDropdown";
+import { useForm, Controller } from "react-hook-form";
+import { Select } from "@mui/material";
 
 const data = "Hello Everyone";
 const ticketowner = [{ label: "Riya" }];
@@ -31,6 +33,12 @@ const ticket = [
 ];
 const priority = [{ label: " Low" }, { label: "Medium" }, { label: "High" }];
 
+const Label = ({ name, important }) => (
+  <FormLabel component="legend">
+    {name} {important ? <>*</> : <></>}
+  </FormLabel>
+);
+
 export const CreateTicket = () => {
   const [state, setState] = React.useState({
     left: false,
@@ -45,55 +53,65 @@ export const CreateTicket = () => {
     }
     setState({ ...state, [anchor]: open });
   };
-  const [value, setValue] = React.useState(new Date("2014-08-18"));
 
-  const Label = ({name,important}) => (<FormLabel component="legend">{name} {important ? <>*</> : <></>}</FormLabel>);
-
-  const handleChange = (newValue) => {
-    setValue(newValue);
-  };
-
-  const anchor ="right";
-
-
-    const createTicketForm=(event)=>{
-
-      event.preventDefault();
-      console.log(event);
-
-      data= {ticketName:"asdnasd",status:"processing"};
-  }
+  const anchor = "right";
 
   return (
     <div key={anchor}>
-          <Button  variant="contained" onClick={toggleDrawer(anchor, true)}>
-            Create Ticket
-          </Button>
-          <Drawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-          >
-            <Box
-              component="form"
-              sx={{ width: "70ch" }}
-              noValidate
-              autoComplete="off"
-            >
-              <div className="header">
-                <h1> Create ticket</h1>
-              </div>
-              <form>
-              <Label name="Ticket name" />
-                <TextField  id="ticketName" className="inputboxx" />
+      <Button variant="contained" onClick={toggleDrawer(anchor, true)}>
+        Create Ticket
+      </Button>
+      <Drawer
+        anchor={anchor}
+        open={state[anchor]}
+        onClose={toggleDrawer(anchor, false)}
+      >
+        {/* <Box
+          component="form"
+          sx={{ width: "70ch" }}
+        >
+          <div className="header">
+            <h1> Create ticket</h1>
+          </div>
+            <Check/>
+        </Box> */}
+        <TicketForm />
+      </Drawer>
+    </div>
+  );
+};
 
-                <Label name="Pipeline" />
-                <CustomDropdown id="pipeline" option={pipeline} />
+const TicketForm = () => {
+  const setTicketFormData = (data) => {
+    console.log(data);
+  };
 
-                <Label name="Ticket Status" />
-                <CustomDropdown id="status" option={ticket} />
+  const { control, register, handleSubmit, watch } = useForm({
+    defaultValues: {
+      firstName: "",
+      select: {},
+    },
+  });
 
-                {/* <Label name="Ticket owner" />
+  return (
+    <form onSubmit={handleSubmit(setTicketFormData)}>
+      <Label name="Ticket name" />
+      <TextField
+        id="ticketName"
+        {...register("example")}
+        className="inputbox"
+      />
+
+      <Label name="Pipeline" />
+      <CustomDropdown id="pipeline" option={pipeline} />
+
+      <Label name="Ticket Status" />
+      <CustomDropdown id="status" {...register("newCustom")} control={control} option={ticket} />
+
+
+    
+
+      {/* <Label name="Ticket owner" />
                 <CustomDropdown option={ticketowner} />
 
                 <Label name="Priority" important="true" />
@@ -112,15 +130,42 @@ export const CreateTicket = () => {
                   </Stack>
                 </LocalizationProvider> */}
 
-                <Stack className="stack" spacing={2} direction="row">
-                  <Button variant="outlined" type="submit">Submit</Button>
-                  <Button variant="outlined">Create and add another</Button>
-                  <Button variant="outlined">cancel</Button>
-                </Stack>
-              </form>
-            </Box>
-          </Drawer>
-  
-    </div>
+      <Stack className="stack" spacing={2} direction="row">
+        <Button variant="outlined" type="submit">
+          Submit
+        </Button>
+        <Button variant="outlined">Create and add another</Button>
+        <Button variant="outlined">cancel</Button>
+      </Stack>
+    </form>
   );
 };
+
+export function Check() {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => {
+    // event.preventDefault();
+    console.log(data);
+  };
+
+  // console.log(watch("example")); // you can watch individual input by pass the name of the input
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      {/* register your input into the hook by invoking the "register" function */}
+      <input defaultValue="test" {...register("example")} />
+
+      {/* include validation with required or other standard HTML validation rules */}
+      <input {...register("exampleRequired", { required: true })} />
+      {/* errors will return when field validation fails  */}
+      {errors.exampleRequired && <p>This field is required</p>}
+
+      <input type="submit" />
+    </form>
+  );
+}

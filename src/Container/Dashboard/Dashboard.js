@@ -3,8 +3,9 @@ import { Route, Routes,BrowserRouter as Router } from "react-router-dom";
 import { CreateTicket } from "../../Component/CreateTicketForm/CreateTicket";
 import TemporaryDrawer from "../../Component/TemporaryDrawer";
 import TopNavBar from "../../Component/TopNavBar";
-import { DummyComponent } from "../DummyComponent";
-import {DataGridview} from "../../Component/DataGridview/DataGridview";
+import { Home } from "../Home/Home";
+import { TicketDashboard } from "../TicketDashboard/TicketDashboard";
+
 
 import "./dashboard.scss";
 
@@ -13,7 +14,8 @@ const SwitchRouter = () => {
   return (
     <>
       <Routes>
-        <Route  path="*" element={<DummyComponent/>} ></Route>
+      <Route exact path="/" element={<Home/>} ></Route>
+        <Route exact path="/tickets" element={<TicketDashboard/>} ></Route>
       </Routes>
     </>
   );
@@ -25,10 +27,7 @@ export const Dashboard = () => {
     <Router>
       <TopNavBar />
       <TemporaryDrawer />
-      <div className="ticketCreate">
-          <DataGridview className="data-grid"/>
-          <CreateTicket className="create-ticket"/>
-        </div>
+      <SwitchRouter/>
     </Router>
   );
 };

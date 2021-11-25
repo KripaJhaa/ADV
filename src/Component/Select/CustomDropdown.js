@@ -5,6 +5,7 @@ import Autocomplete from "@mui/material/Autocomplete";
 import HomeIcon from "@mui/icons-material/Home";
 import CoffeeIcon from "@mui/icons-material/Coffee";
 import CheckIcon from "@mui/icons-material/Check";
+import { useForm, Controller } from "react-hook-form";
 
 const optionss = [
   { icon: <HomeIcon />, label: "Home" },
@@ -12,8 +13,10 @@ const optionss = [
   { icon: <CheckIcon />, label: "CheckSquare" },
 ];
 
-export const CustomDropdown = (props = { id: "", option: [] }) => {
+export const CustomDropdown = (props = { id: "", option: [] ,control:{}}) => {
   return (
+    <Controller
+    render={({ field }) => (
     <Autocomplete
       id={props.id}
       className="dropdown"
@@ -34,5 +37,9 @@ export const CustomDropdown = (props = { id: "", option: [] }) => {
         />
       )}
     />
-  );
+  )}
+  control={props.control}
+  defaultValue=""
+  />
+  )
 };
