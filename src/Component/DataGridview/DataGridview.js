@@ -44,13 +44,12 @@ const columns = [
   },
 ];
 
-export const DataGridview = () => {
-
+export const DataGridview = ({rowData}) => {
  
 
   return (
     <div style={{ height:600,width:'100%' }}>
-        <DataGrid  rows={[...defaultRows]} columns={columns} />
+        <DataGrid  rows={[...rowData]} columns={columns} />
     </div>
   );
 };

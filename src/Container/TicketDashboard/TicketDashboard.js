@@ -10,13 +10,17 @@ export const TicketDashboard = () => {
     const [ticketsArray, setTicketsArray] = useState([]);
 
     const setTicketRow = (data)=>{
-        setTicketsArray([...ticketsArray,data])
+        console.log(data);
+
+        setTicketsArray([...ticketsArray,{"firstName:":data.source,id:"12",source:"papa"}])
     }
+
+
 
     return (
         <div className="ticket-dashboard">
-        <DataGridview className="data-grid"/>
-        <CreateTicket setTicketRow ="setTicketFormData" className="create-ticket"/>
+        <DataGridview rowData={ticketsArray} className="data-grid"/>
+        <CreateTicket setTicketFormData = {setTicketRow} className="create-ticket"/>
         {/* <Check/> */}
       </div>
     )

@@ -39,7 +39,7 @@ const Label = ({ name, important }) => (
   </FormLabel>
 );
 
-export const CreateTicket = () => {
+export const CreateTicket = ({setTicketFormData}) => {
   const [state, setState] = React.useState({
     left: false,
   });
@@ -75,15 +75,15 @@ export const CreateTicket = () => {
           </div>
             <Check/>
         </Box> */}
-        <TicketForm />
+        <TicketForm setTicketFormData={setTicketFormData} />
       </Drawer>
     </div>
   );
 };
 
-const TicketForm = () => {
-  const setTicketFormData = (data) => {
-    console.log(data);
+const TicketForm = ({setTicketFormData}) => {
+  const setTicketForm = (data) => {
+    setTicketFormData(data);
   };
 
   const { control, register, handleSubmit, watch } = useForm({
@@ -94,7 +94,7 @@ const TicketForm = () => {
   });
 
   return (
-    <form onSubmit={handleSubmit(setTicketFormData)}>
+    <form onSubmit={handleSubmit(setTicketForm)}>
       <Label name="Ticket name" />
       <TextField
         id="ticketName"
@@ -141,31 +141,3 @@ const TicketForm = () => {
   );
 };
 
-export function Check() {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => {
-    // event.preventDefault();
-    console.log(data);
-  };
-
-  // console.log(watch("example")); // you can watch individual input by pass the name of the input
-
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      {/* register your input into the hook by invoking the "register" function */}
-      <input defaultValue="test" {...register("example")} />
-
-      {/* include validation with required or other standard HTML validation rules */}
-      <input {...register("exampleRequired", { required: true })} />
-      {/* errors will return when field validation fails  */}
-      {errors.exampleRequired && <p>This field is required</p>}
-
-      <input type="submit" />
-    </form>
-  );
-}

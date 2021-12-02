@@ -5,8 +5,6 @@ import TemporaryDrawer from "../../Component/TemporaryDrawer";
 import TopNavBar from "../../Component/TopNavBar";
 import { Home } from "../Home/Home";
 import { TicketDashboard } from "../TicketDashboard/TicketDashboard";
-
-
 import "./dashboard.scss";
 
 
