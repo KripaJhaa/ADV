@@ -1,8 +1,8 @@
-import {React,useState} from 'react'
+import {useState} from 'react'
 import { CreateTicket,Check } from '../../Component/CreateTicketForm/CreateTicket'
 import { DataGridview } from '../../Component/DataGridview/DataGridview'
 import "./TicketDashboard.scss";
-
+import Button from "@mui/material/Button";
 
 export const TicketDashboard = () => {
 
@@ -12,16 +12,18 @@ export const TicketDashboard = () => {
     const setTicketRow = (data)=>{
         console.log(data);
 
-        setTicketsArray([...ticketsArray,{"firstName:":data.source,id:"12",source:"papa"}])
+        setTicketsArray([...ticketsArray,data])
     }
 
 
 
     return (
         <div className="ticket-dashboard">
-        <DataGridview rowData={ticketsArray} className="data-grid"/>
+        <DataGridview className="data-grid" rowData={ticketsArray} />
         <CreateTicket setTicketFormData = {setTicketRow} className="create-ticket"/>
-        {/* <Check/> */}
       </div>
     )
+
+
+    // return (  <Button variant="contained">Contained</Button>)
 }       

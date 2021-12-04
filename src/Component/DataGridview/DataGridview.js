@@ -1,5 +1,5 @@
-import * as React from "react";
 import { DataGrid } from "@mui/x-data-grid";
+import "./DataGridview.scss";
 
 const defaultRows = [
   { id: 1, lastName: "Riya", firstName: "Patel", source: "chat" },
@@ -48,8 +48,8 @@ export const DataGridview = ({rowData}) => {
  
 
   return (
-    <div style={{ height:600,width:'100%' }}>
-        <DataGrid  rows={[...rowData]} columns={columns} />
+    <div className="data-grid-view" style={{ height: 600, width: "90%" }}>
+        <DataGrid  rows={rowData} columns={columns}/>
     </div>
   );
 };

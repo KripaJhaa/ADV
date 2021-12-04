@@ -13,14 +13,15 @@ const optionss = [
   { icon: <CheckIcon />, label: "CheckSquare" },
 ];
 
-export const CustomDropdown = (props = { id: "", option: [] ,control:{}}) => {
+export const CustomDropdown = ({ id,field, option,control}) => {
   return (
    
     <Autocomplete
-      id={props.id}
+      id={id}
       className="dropdown"
-      options={props.option}
+      options={option}
       autoHighlight
+      onChange={(event,value)=>field.onChange(value.label)}
       getOptionLabel={(option) => option.label}
       renderOption={(props, option) => (
         <Box component="li" {...props}>

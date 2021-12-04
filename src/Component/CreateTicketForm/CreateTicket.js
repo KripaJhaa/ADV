@@ -11,9 +11,10 @@ import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
 import "./style.scss";
 import { CustomDropdown } from "../Select/CustomDropdown";
 import { useForm, Controller } from "react-hook-form";
-import { Select } from "@mui/material";
+import { Fab, Select } from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
+import { v4 as uuidv4 } from 'uuid';
 
-const data = "Hello Everyone";
 const ticketowner = [{ label: "Riya" }];
 const pipeline = [
   { label: "support pipeline" },
@@ -39,7 +40,7 @@ const Label = ({ name, important }) => (
   </FormLabel>
 );
 
-export const CreateTicket = ({setTicketFormData}) => {
+export const CreateTicket = ({ setTicketFormData }) => {
   const [state, setState] = React.useState({
     left: false,
   });
@@ -58,86 +59,102 @@ export const CreateTicket = ({setTicketFormData}) => {
 
   return (
     <div key={anchor}>
-      <Button variant="contained" onClick={toggleDrawer(anchor, true)}>
-        Create Ticket
-      </Button>
+      <Fab
+      className="create-ticket-btn"
+        color="secondary"
+        aria-label="add"
+        onClick={toggleDrawer(anchor, true)}
+      >
+        <AddIcon />
+      </Fab>
+
       <Drawer
         anchor={anchor}
         open={state[anchor]}
         onClose={toggleDrawer(anchor, false)}
       >
-        {/* <Box
-          component="form"
-          sx={{ width: "70ch" }}
-        >
-          <div className="header">
-            <h1> Create ticket</h1>
-          </div>
-            <Check/>
-        </Box> */}
         <TicketForm setTicketFormData={setTicketFormData} />
       </Drawer>
     </div>
   );
 };
 
-const TicketForm = ({setTicketFormData}) => {
+const TicketForm = ({ setTicketFormData }) => {
   const setTicketForm = (data) => {
-    setTicketFormData(data);
+    let _final_data={id:uuidv4(),...data}
+    setTicketFormData(_final_data);
   };
 
-  const { control, register, handleSubmit, watch } = useForm({
-    defaultValues: {
-      firstName: "",
-      select: {},
-    },
-  });
+  const { control, register, handleSubmit, watch } = useForm({});
+  const [value, setValue] = React.useState(new Date("2014-08-18T21:11:54"));
+
+  const handleChange = (newValue) => {
+    setValue(newValue);
+  };
 
   return (
     <form onSubmit={handleSubmit(setTicketForm)}>
       <Label name="Ticket name" />
       <TextField
         id="ticketName"
-        {...register("example")}
+        {...register("ticketName")}
         className="inputbox"
       />
 
       <Label name="Pipeline" />
-      <CustomDropdown id="pipeline" option={pipeline} />
+      <Controller
+        name="pipeline"
+        control={control}
+        render={({ field }) => (
+          <CustomDropdown field={field} option={pipeline} />
+        )}
+      />
 
       <Label name="Ticket Status" />
-      <CustomDropdown id="status" {...register("newCustom")} control={control} option={ticket} />
+      <Controller
+        name="status"
+        control={control}
+        render={({ field }) => <CustomDropdown field={field} option={ticket} />}
+      />
 
+      <Label name="Ticket owner" />
+      <Controller
+        name="ticketOwner"
+        control={control}
+        render={({ field }) => (
+          <CustomDropdown field={field} option={ticketowner} />
+        )}
+      />
 
-    
+      <Label name="Priority" />
+      <Controller
+        name="priority"
+        control={control}
+        render={({ field }) => (
+          <CustomDropdown field={field} option={priority} />
+        )}
+      />
 
-      {/* <Label name="Ticket owner" />
-                <CustomDropdown option={ticketowner} />
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <Stack spacing={3}>
+          <DesktopDatePicker
+            inputFormat="MM/dd/yyyy"
+            value={value}
+            onChange={handleChange}
+            renderInput={(params) => <TextField {...register("date")} {...params} />}
+          />
+        </Stack>
+      </LocalizationProvider>
 
-                <Label name="Priority" important="true" />
-                <CustomDropdown option={priority} />
-
-                <Label name="Create Date*" />
-                <LocalizationProvider dateAdapter={AdapterDateFns}>
-                  <Stack spacing={3}>
-                    <DesktopDatePicker
-                      className="dropdown"
-                      inputFormat="MM/dd/yyyy"
-                      value={value}
-                      onChange={handleChange}
-                      renderInput={(params) => <TextField {...params} />}
-                    />
-                  </Stack>
-                </LocalizationProvider> */}
-
-      <Stack className="stack" spacing={2} direction="row">
+      <Stack className="stack" spacing={3} direction="row">
         <Button variant="outlined" type="submit">
           Submit
         </Button>
-        <Button variant="outlined">Create and add another</Button>
+        <Button color="neutral" variant="contained">
+          Create and add another
+        </Button>
         <Button variant="outlined">cancel</Button>
       </Stack>
     </form>
   );
 };
-
