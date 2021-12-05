@@ -7,9 +7,12 @@ import FormLabel from "@mui/material/FormLabel";
 import Stack from "@mui/material/Stack";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import IconButton from '@mui/material/IconButton';
 import CancelIcon from '@mui/icons-material/Cancel';
 import DialogTitle from '@mui/material/DialogTitle';
+=======
+>>>>>>> 84e236ec68c6acf2dce13cf42fe682c318ee0b60
 =======
 >>>>>>> 84e236ec68c6acf2dce13cf42fe682c318ee0b60
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
@@ -80,6 +83,7 @@ export const CreateTicket = ({ setTicketFormData }) => {
         onClose={toggleDrawer(anchor, false)}
       >
 <<<<<<< HEAD
+<<<<<<< HEAD
       
         <TicketForm setTicketFormData={setTicketFormData} />
         <DialogTitle disableTypography className="drawerTitle">
@@ -87,6 +91,9 @@ export const CreateTicket = ({ setTicketFormData }) => {
     <Button variant="outlined"  className="closebutton">cancel</Button>
     </IconButton>
   </DialogTitle>
+=======
+        <TicketForm setTicketFormData={setTicketFormData} />
+>>>>>>> 84e236ec68c6acf2dce13cf42fe682c318ee0b60
 =======
         <TicketForm setTicketFormData={setTicketFormData} />
 >>>>>>> 84e236ec68c6acf2dce13cf42fe682c318ee0b60
@@ -110,6 +117,7 @@ const TicketForm = ({ setTicketFormData }) => {
 
   return (
 <<<<<<< HEAD
+<<<<<<< HEAD
    
     <form onSubmit={handleSubmit(setTicketForm)}>
      <div className="header">
@@ -120,11 +128,16 @@ const TicketForm = ({ setTicketFormData }) => {
         id="ticketName"
         {...register("ticketname")}
 =======
+=======
+>>>>>>> 84e236ec68c6acf2dce13cf42fe682c318ee0b60
     <form onSubmit={handleSubmit(setTicketForm)}>
       <Label name="Ticket name" />
       <TextField
         id="ticketName"
         {...register("ticketName")}
+<<<<<<< HEAD
+>>>>>>> 84e236ec68c6acf2dce13cf42fe682c318ee0b60
+=======
 >>>>>>> 84e236ec68c6acf2dce13cf42fe682c318ee0b60
         className="inputbox"
       />
@@ -141,7 +154,11 @@ const TicketForm = ({ setTicketFormData }) => {
       <Label name="Ticket Status" />
       <Controller
 <<<<<<< HEAD
+<<<<<<< HEAD
         name="ticketstatus"
+=======
+        name="status"
+>>>>>>> 84e236ec68c6acf2dce13cf42fe682c318ee0b60
 =======
         name="status"
 >>>>>>> 84e236ec68c6acf2dce13cf42fe682c318ee0b60
@@ -183,16 +200,22 @@ const TicketForm = ({ setTicketFormData }) => {
           Submit
         </Button>
 <<<<<<< HEAD
+<<<<<<< HEAD
           
         <Button color="neutral" variant="contained">
           Create and add another
         </Button>
        
 =======
+=======
+>>>>>>> 84e236ec68c6acf2dce13cf42fe682c318ee0b60
         <Button color="neutral" variant="contained">
           Create and add another
         </Button>
         <Button variant="outlined">cancel</Button>
+<<<<<<< HEAD
+>>>>>>> 84e236ec68c6acf2dce13cf42fe682c318ee0b60
+=======
 >>>>>>> 84e236ec68c6acf2dce13cf42fe682c318ee0b60
       </Stack>
     </form>
