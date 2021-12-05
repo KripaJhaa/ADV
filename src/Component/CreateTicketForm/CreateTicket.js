@@ -6,9 +6,12 @@ import TextField from "@mui/material/TextField";
 import FormLabel from "@mui/material/FormLabel";
 import Stack from "@mui/material/Stack";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
+<<<<<<< HEAD
 import IconButton from '@mui/material/IconButton';
 import CancelIcon from '@mui/icons-material/Cancel';
 import DialogTitle from '@mui/material/DialogTitle';
+=======
+>>>>>>> 84e236ec68c6acf2dce13cf42fe682c318ee0b60
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
 import "./style.scss";
@@ -76,6 +79,7 @@ export const CreateTicket = ({ setTicketFormData }) => {
         open={state[anchor]}
         onClose={toggleDrawer(anchor, false)}
       >
+<<<<<<< HEAD
       
         <TicketForm setTicketFormData={setTicketFormData} />
         <DialogTitle disableTypography className="drawerTitle">
@@ -83,6 +87,9 @@ export const CreateTicket = ({ setTicketFormData }) => {
     <Button variant="outlined"  className="closebutton">cancel</Button>
     </IconButton>
   </DialogTitle>
+=======
+        <TicketForm setTicketFormData={setTicketFormData} />
+>>>>>>> 84e236ec68c6acf2dce13cf42fe682c318ee0b60
       </Drawer>
     </div>
   );
@@ -102,6 +109,7 @@ const TicketForm = ({ setTicketFormData }) => {
   };
 
   return (
+<<<<<<< HEAD
    
     <form onSubmit={handleSubmit(setTicketForm)}>
      <div className="header">
@@ -111,6 +119,13 @@ const TicketForm = ({ setTicketFormData }) => {
       <TextField
         id="ticketName"
         {...register("ticketname")}
+=======
+    <form onSubmit={handleSubmit(setTicketForm)}>
+      <Label name="Ticket name" />
+      <TextField
+        id="ticketName"
+        {...register("ticketName")}
+>>>>>>> 84e236ec68c6acf2dce13cf42fe682c318ee0b60
         className="inputbox"
       />
 
@@ -125,7 +140,11 @@ const TicketForm = ({ setTicketFormData }) => {
 
       <Label name="Ticket Status" />
       <Controller
+<<<<<<< HEAD
         name="ticketstatus"
+=======
+        name="status"
+>>>>>>> 84e236ec68c6acf2dce13cf42fe682c318ee0b60
         control={control}
         render={({ field }) => <CustomDropdown field={field} option={ticket} />}
       />
@@ -163,11 +182,18 @@ const TicketForm = ({ setTicketFormData }) => {
         <Button variant="outlined" type="submit">
           Submit
         </Button>
+<<<<<<< HEAD
           
         <Button color="neutral" variant="contained">
           Create and add another
         </Button>
        
+=======
+        <Button color="neutral" variant="contained">
+          Create and add another
+        </Button>
+        <Button variant="outlined">cancel</Button>
+>>>>>>> 84e236ec68c6acf2dce13cf42fe682c318ee0b60
       </Stack>
     </form>
   );

@@ -19,13 +19,26 @@ const columns = [
     width: 170,
     editable: true,
   },
+<<<<<<< HEAD
   
   {
     field: "ticketOwner",
+=======
+  {
+    field: "ticketdescription",
+    headerName: "Ticket Discription",
+    width: 190,
+    editable: true,
+  },
+  { field: "source", headerName: "Source", width: 130, editable: true },
+  {
+    field: "ticketowner",
+>>>>>>> 84e236ec68c6acf2dce13cf42fe682c318ee0b60
     headerName: "Ticket Owner",
     width: 170,
     editable: true,
   },
+<<<<<<< HEAD
   
   { field: "priority", headerName: "Priority", width: 130, editable: true },
   { field: "date", headerName: "Date", width: 130, editable: true },
@@ -37,6 +50,11 @@ const columns = [
   },
 { field: "source", headerName: "Source", width: 130, editable: true },
 { field: "company", headerName: "Company", width: 140, editable: true },
+=======
+  { field: "priority", headerName: "Priority", width: 130, editable: true },
+  { field: "date", headerName: "Date", width: 130, editable: true },
+  { field: "company", headerName: "Company", width: 140, editable: true },
+>>>>>>> 84e236ec68c6acf2dce13cf42fe682c318ee0b60
   { field: "contact", headerName: "Contact", width: 130, editable: true },
   {
     field: "firstName",
@@ -44,15 +62,24 @@ const columns = [
     width: 160,
     editable: true,
   },
+<<<<<<< HEAD
 
+=======
+>>>>>>> 84e236ec68c6acf2dce13cf42fe682c318ee0b60
 ];
 
 export const DataGridview = ({rowData}) => {
  
 
   return (
+<<<<<<< HEAD
     <div className="data-grid-view" style={{ height: 600, width: "100%" }}>
         <DataGrid  rows={rowData} columns={columns}/>
     </div>   
+=======
+    <div className="data-grid-view" style={{ height: 600, width: "90%" }}>
+        <DataGrid  rows={rowData} columns={columns}/>
+    </div>
+>>>>>>> 84e236ec68c6acf2dce13cf42fe682c318ee0b60
   );
 };
