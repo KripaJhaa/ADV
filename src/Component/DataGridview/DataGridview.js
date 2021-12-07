@@ -69,7 +69,7 @@ export const DataGridview = ({rowData}) => {
 
   return (
 
-    <div className="data-grid-view" style={{ height: 600, width: "100%" }}>
+    <div className="data-grid-view" style={{ height: 450, width: "100%" }}>
         <DataGrid  rows={rowData} columns={columns}/>
     </div>   
 

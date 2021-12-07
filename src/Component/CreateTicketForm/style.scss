@@ -2,10 +2,12 @@
 {
     background-color: #00bda5;
     background-image: linear-gradient(-303deg,#00a4bd,#00afb2 56%,#00bda5);
-    margin-bottom : -30px;
+    margin-bottom : -1em !important;
     margin-top:-1.25em;
-    height:3em;
+    height:4em;
     width:103%;
+    position: fixed;
+    
 }
 h1
 {
@@ -24,18 +26,20 @@ h1
 {
     margin-top: 5em;
     margin-left: 2em;
+    margin-bottom: -9.5em;
 }
 
 .closebutton
 {
-    margin-top: -7em !important;
+    margin-top: 6em !important;
     margin-left: 26em !important;
 }
 .css-1lwbda4-MuiStack-root {
     margin-top: 4em;
 }
 .css-1tywoed-MuiButtonBase-root-MuiFab-root{
-    margin-top: 30em !important;
+    position: fixed;
+    margin-top: 21em !important;
     margin-right: 3em !important;
 }
 .css-99lfi7-MuiDataGrid-columnsContainer {
@@ -43,8 +47,19 @@ h1
 }
 .css-1pans1z-MuiDataGrid-virtualScroller
 {
-    margin-right:-75px !important;
+    margin-right:4em !important;
    
+}
+.css-1pans1z-MuiDataGrid-virtualScroller {
+    overflow: scroll !important;
+    width: 97em !important;
+}
+.css-14ps8yx-MuiDataGrid-virtualScroller {
+    position: relative;
+    width:250% !important;
+    margin-right: 12em;
+   
+    overflow: hidden;
 }
 .css-1nnf8qi-MuiDataGrid-root
 {
@@ -52,7 +67,7 @@ h1
 }
 .MuiTextField-root
 {
-    margin-top: 3em;
+    margin-top: 2em;
     margin-right: 2.5em !important;
     margin-left: 2.5em !important;
 }
@@ -68,11 +83,25 @@ h1
    margin: 1em;
     padding: 20px;
     width: 60ch;
-    height: 5px;
+    height: 2px !important;
+}
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input
+{
+    height: 0.4375em !important;
+   
+}
+.css-1u3bzj6-MuiFormControl-root-MuiTextField-root
+{
+    margin-bottom: -4em !important;
+}
+.css-nxo287-MuiInputBase-input-MuiOutlinedInput-input
+{
+    height: 0.4375em !important;
+    margin-bottom: 0em !important;
 }
 .MuiFormLabel-root
 {
-    margin-top: 3.5em !important;
+    margin-top: 3.3em !important;
     margin-left: 3.2em !important;
     margin-bottom: 0.4em !important;
     font-size: 14px !important;

@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import { CreateTicket,Check } from '../../Component/CreateTicketForm/CreateTicket'
 import { DataGridview } from '../../Component/DataGridview/DataGridview'
+import { Footer } from '../../Component/Footer/Footer'
 import "./TicketDashboard.scss";
 import Button from "@mui/material/Button";
 
@@ -21,6 +22,7 @@ export const TicketDashboard = () => {
         <div className="ticket-dashboard">
         <DataGridview className="data-grid" rowData={ticketsArray} />
         <CreateTicket setTicketFormData = {setTicketRow} className="create-ticket"/>
+        <Footer />
       </div>
     )
 

@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Footer } from '../../Component/Footer/Footer'
 export const Home = () => {
   return (
     <div>
@@ -19,6 +19,8 @@ export const Home = () => {
         et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
         exercitation ullamco.
       </p>
+      <Footer />
     </div>
+   
   );
 };
