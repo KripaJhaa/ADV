@@ -31,7 +31,7 @@ const columns = [
   },
   { field: "source", headerName: "Source", width: 130, editable: true },
   {
-    field: "ticketowner",
+    field: "ticketOwner",
 
     headerName: "Ticket Owner",
     width: 170,
@@ -40,7 +40,7 @@ const columns = [
 
   
   { field: "priority", headerName: "Priority", width: 130, editable: true },
-  { field: "date", headerName: "Date", width: 130, editable: true },
+  { field: "date1", headerName: "Date", width: 130, editable: true },
   {
     field: "ticketdescription",
     headerName: "Ticket Discription",

@@ -147,13 +147,15 @@ const TicketForm = ({ setTicketFormData }) => {
         )}
       />
 <Label name="Create Date" />
+
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <Stack spacing={1}>
           <DesktopDatePicker
             inputFormat="MM/dd/yyyy"
             value={value}
             onChange={handleChange}
-            renderInput={(params) => <TextField {...register("date")} {...params} />}
+           
+            renderInput={(params) => <TextField {...register("date1")} {...params} />}
           />
         </Stack>
       </LocalizationProvider>
