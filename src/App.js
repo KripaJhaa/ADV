@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 import { store } from "./Redux/Store";
 import { Component } from "react";
 import { Dashboard } from "./Container/Dashboard/Dashboard";
+import { Footer } from './Component/Footer/Footer';
 import Button from "@mui/material/Button";
 export default class App extends Component {
   render() {
@@ -15,7 +16,7 @@ export default class App extends Component {
         <ThemeProvider theme={Theme}>
           <Dashboard/>
         </ThemeProvider>
-        
+        <Footer />
       </Provider>
     );
   }

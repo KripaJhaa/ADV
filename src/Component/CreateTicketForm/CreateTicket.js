@@ -5,6 +5,8 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import FormLabel from "@mui/material/FormLabel";
 import Stack from "@mui/material/Stack";
+import IconButton from '@mui/material/IconButton';
+import DialogTitle from '@mui/material/DialogTitle';
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
@@ -31,6 +33,15 @@ const ticket = [
   { label: "waiting on contact" },
   { label: "waiting on us" },
   { label: "closed" },
+];
+const company = [
+  { label: "pune" },
+  { label: "banglor" },
+];
+const contact = [
+  { label: "riya sharma" },
+  { label: "priya patel" },
+ 
 ];
 const priority = [{ label: " Low" }, { label: "Medium" }, { label: "High" }];
 
@@ -74,6 +85,11 @@ export const CreateTicket = ({ setTicketFormData }) => {
         onClose={toggleDrawer(anchor, false)}
       >
         <TicketForm setTicketFormData={setTicketFormData} />
+        <DialogTitle disableTypography className="drawerTitle">
+    <IconButton onClick={toggleDrawer(anchor, false)}>
+    <Button variant="outlined"  className="closebutton">cancel</Button>
+    </IconButton>
+  </DialogTitle>
       </Drawer>
     </div>
   );
@@ -94,13 +110,29 @@ const TicketForm = ({ setTicketFormData }) => {
 
   return (
     <form onSubmit={handleSubmit(setTicketForm)}>
-      <Label name="Ticket name" />
+     <div className="header">
+    <h1> Create ticket</h1>
+</div>
+      <Label className="label1" name="Ticket name" />
       <TextField
         id="ticketName"
-        {...register("ticketName")}
+        {...register("ticketname")}
         className="inputbox"
       />
-
+ <Label name="Ticket description" />
+      <TextField
+        id="ticketdescription"
+        {...register("ticketdescription")}
+        className="inputbox"
+      />
+      <Label name="Source" />
+      <Controller
+        name="source"
+        control={control}
+        render={({ field }) => (
+          <CustomDropdown field={field} option={source} />
+        )}
+      />
       <Label name="Pipeline" />
       <Controller
         name="pipeline"
@@ -112,14 +144,14 @@ const TicketForm = ({ setTicketFormData }) => {
 
       <Label name="Ticket Status" />
       <Controller
-        name="status"
+        name="ticketstatus"
         control={control}
         render={({ field }) => <CustomDropdown field={field} option={ticket} />}
       />
 
       <Label name="Ticket owner" />
       <Controller
-        name="ticketOwner"
+        name="ticketowner"
         control={control}
         render={({ field }) => (
           <CustomDropdown field={field} option={ticketowner} />
@@ -134,9 +166,9 @@ const TicketForm = ({ setTicketFormData }) => {
           <CustomDropdown field={field} option={priority} />
         )}
       />
-
+<Label name="Create Date" />
       <LocalizationProvider dateAdapter={AdapterDateFns}>
-        <Stack spacing={3}>
+        <Stack spacing={1}>
           <DesktopDatePicker
             inputFormat="MM/dd/yyyy"
             value={value}
@@ -145,15 +177,30 @@ const TicketForm = ({ setTicketFormData }) => {
           />
         </Stack>
       </LocalizationProvider>
-
+      <Label name="Company" />
+      <Controller
+        name="company"
+        control={control}
+        render={({ field }) => (
+          <CustomDropdown field={field} option={company} />
+        )}
+      />
+      <Label name="Contact" />
+      <Controller
+        name="contact"
+        control={control}
+        render={({ field }) => (
+          <CustomDropdown field={field} option={contact} />
+        )}
+      />
       <Stack className="stack" spacing={3} direction="row">
-        <Button variant="outlined" type="submit">
+        <Button  className="submit" variant="outlined" type="submit">
           Submit
         </Button>
         <Button color="neutral" variant="contained">
           Create and add another
         </Button>
-        <Button variant="outlined">cancel</Button>
+       
       </Stack>
     </form>
   );
