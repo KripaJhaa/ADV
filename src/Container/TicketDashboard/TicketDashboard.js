@@ -5,13 +5,9 @@ import "./TicketDashboard.scss";
 import Button from "@mui/material/Button";
 
 export const TicketDashboard = () => {
-
-
     const [ticketsArray, setTicketsArray] = useState([]);
-
     const setTicketRow = (data)=>{
         console.log(data);
-
         setTicketsArray([...ticketsArray,data])
     }
 
