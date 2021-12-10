@@ -9,46 +9,49 @@ const columns = [
   {
     field: "ticketname",
     headerName: "Ticket Name",
-    width: 170,
+    width: 130,
     editable: true,
   },
   { field: "pipeline", headerName: "Pipeline", width: 130, editable: true },
   {
     field: "ticketstatus",
     headerName: "Ticket Status",
-    width: 170,
+    width: 140,
     editable: true,
   },
   {
     field: "ticketdescription",
     headerName: "Ticket Discription",
-    width: 190,
-    editable: true,
-  },
-  { field: "source", headerName: "Source", width: 130, editable: true },
-  {
-    field: "ticketowner",
-    headerName: "Ticket Owner",
-    width: 170,
-    editable: true,
-  },
-  { field: "priority", headerName: "Priority", width: 130, editable: true },
-  { field: "date", headerName: "Date", width: 130, editable: true },
-  { field: "company", headerName: "Company", width: 140, editable: true },
-  { field: "contact", headerName: "Contact", width: 130, editable: true },
-  {
-    field: "firstName",
-    headerName: "Full name",
     width: 160,
     editable: true,
   },
+  { field: "source", headerName: "Source", width: 110, editable: true },
+  {
+    field: "ticketowner",
+    headerName: "Ticket Owner",
+    width: 130,
+    editable: true,
+  },
+  { field: "priority", headerName: "Priority", width: 110, editable: true },
+  { field: "date", headerName: "Date", width: 110, editable: true },
+  {
+    field: "ticketdescription",
+    headerName: "Ticket Discription",
+    width: 150,
+    editable: true,
+  },
+{ field: "source", headerName: "Source", width: 110, editable: true },
+{ field: "company", headerName: "Company", width: 110, editable: true },
+ 
+  { field: "contact", headerName: "Contact", width: 110, editable: true },
+
 ];
 
 export const DataGridview = ({rowData}) => {
  
 
   return (
-    <div className="data-grid-view" style={{ height: 600, width: "90%" }}>
+    <div className="data-grid-view" style={{ height: 450, width: "100%" }}>
         <DataGrid  rows={rowData} columns={columns}/>
     </div>
   );
