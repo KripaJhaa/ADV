@@ -13,7 +13,7 @@ const SwitchRouter = () => {
     <>
       <Routes>
       <Route exact path="/" element={<Home/>} ></Route>
-        <Route exact path="/tickets" element={<TicketDashboard/>} ></Route>
+        <Route  exact path="/tickets" element={<TicketDashboard/>} ></Route>
       </Routes>
     </>
   );
