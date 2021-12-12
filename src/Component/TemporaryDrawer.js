@@ -37,7 +37,7 @@ console.log({ open });
       <List  >
         {SideNavMenuItems.map((item, index) => (
           <ListItem className="linkk" button key={item.title}>
-            <ListItemText  primary={item.subtile} />
+            <ListItemText className="linkk" primary={item.subtile} />
             <Link className="linkk" style={{textDecoration: 'none' }} onClick={()=>dispatch(toggleNav())} to={`${item.redirect}`}>{item.title}</Link>
           </ListItem>
         ))}

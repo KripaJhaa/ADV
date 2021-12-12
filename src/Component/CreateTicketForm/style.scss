@@ -5,8 +5,14 @@
     margin-bottom : -1em !important;	
     margin-top:-1.25em;	
     height:4em;	
-    width:103%;	
+    width:100%;	
     position: fixed;
+   
+   
+}
+.label1
+{
+    margin-top: 3em !important;
 }
 h1
 {
@@ -24,15 +30,33 @@ h1
 .stack
 {
     margin-top: 3em ;	
-    margin-left: 2.5em;	
+    margin-left: 23.5em;	
     margin-bottom: -7.5em;	
   	
 }	
+.footeer
+{
+    margin-top: -22.96em !important;
+    position: fixed !important;
+    background-color: #f5f8fa;
+    border-top: 1px solid #cbd6e2;
+    padding-bottom: 10px;
+    padding-top: 10px;
+width: 100%;
+ 
+}
+.css-1160xiw-MuiPaper-root-MuiDrawer-paper {
+overflow-x: hidden;
+}
+.submit{
+margin-left: 4em !important;
+
+}
 .closebutton	
 {	
-    margin-top: 4.3em !important;	
+    margin-top: -52.7em !important;	
     margin-right: -58em !important;	
-   	
+   	position: fixed !important;
 }	
 .closebutton:hover{	
     background-color: #64748B !important;	
@@ -60,7 +84,7 @@ h1
    	
 }	
 .css-1pans1z-MuiDataGrid-virtualScroller {	
-    overflow: scroll !important;	
+   
     width: 97em !important;	
 }	
 .css-14ps8yx-MuiDataGrid-virtualScroller {	
@@ -73,10 +97,14 @@ h1
 .css-1nnf8qi-MuiDataGrid-root	
 {	
     border-right:0em !important;	
+}
+.dropdown{
+    margin-bottom: 2em !important;
 }	
 .MuiTextField-root	
 {	
-    margin-top: 2em;	
+  
+    margin-top: 4em;	
     margin-right: 2.5em !important;	
     margin-left: 2.5em !important;	
 }
@@ -95,7 +123,8 @@ h1
 }	
 .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input	
 {	
-    height: 0.4375em !important;	
+    height: 0.4375em !important;
+    	
    	
 }	
 .css-1u3bzj6-MuiFormControl-root-MuiTextField-root	
@@ -106,10 +135,12 @@ h1
 {	
     height: 0.4375em !important;	
     margin-bottom: 0em !important;	
+   
 }	
 
 .MuiFormLabel-root
 {
+    
     margin-top: 3.3em !important;
     margin-left: 3.2em !important;
     margin-bottom: 0.4em !important;

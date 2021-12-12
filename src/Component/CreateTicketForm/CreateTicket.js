@@ -109,6 +109,7 @@ const TicketForm = ({ setTicketFormData }) => {
   };
 
   return (
+    <>
     <form onSubmit={handleSubmit(setTicketForm)}>
      <div className="header">
     <h1> Create ticket</h1>
@@ -189,19 +190,23 @@ const TicketForm = ({ setTicketFormData }) => {
       <Controller
         name="contact"
         control={control}
+        className="dd"
         render={({ field }) => (
           <CustomDropdown field={field} option={contact} />
         )}
       />
-      <Stack className="stack" spacing={3} direction="row">
-        <Button  className="submit" variant="outlined" type="submit">
-          Submit
-        </Button>
-        <Button color="neutral" variant="contained">
-          Create and add another
-        </Button>
        
-      </Stack>
+       <Stack className="footeer" spacing={1.8} direction="row">
+     <Button className="submit" variant="outlined" type="submit">
+       Submit
+     </Button>
+     <Button color="neutral" variant="contained">
+       Create and add another
+     </Button>
+  
+     </Stack>
     </form>
+   
+      </>
   );
 };
